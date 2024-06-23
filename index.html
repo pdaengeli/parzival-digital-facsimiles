@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parzival: Digitalfaksimiles</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+        <h1>Digitalfaksimiles (Übersicht)</h1>
+        
+        <hr/>
+        
+  	<div>
+            <button class="button" role="button" id="1">München, Bayerische Staatsbibliothek, Cgm 19</button>
+            <p><a href="https://github.com/dhbern/parzival-digitalfaksimile-cgm19" target="_blank">Daten</a> | <a href="https://dhbern.github.io/parzival-digitalfaksimile-cgm19" target="_blank">In neuem Fenster öffnen</a></p>
+            
+	    <button class="button" role="button" id="2">St. Gallen, Stiftsbibliothek, Cod. 857</button>
+	    <p><a href="https://github.com/dhbern/parzival-digitalfaksimile-cod857" target="_blank">Daten</a> | <a href="https://dhbern.github.io/parzival-digitalfaksimile-cod857" target="_blank">In neuem Fenster öffnen</a></p>
+	    
+	    <button class="button" role="button" id="3">Bern, Burgerbibliothek, Cod. AA 91</button>
+	    <p><a href="https://github.com/dhbern/parzival-digitalfaksimile-codAA91" target="_blank">Daten</a> | <a href="https://dhbern.github.io/parzival-digitalfaksimile-codAA91" target="_blank">In neuem Fenster öffnen</a></p>
+	    
+	    <button class="button" role="button" id="4">Schwerin, Landesbibliothek Mecklenburg-Vorpommern Günther Uecker, ohne Signatur</button>
+	    <p><a href="https://github.com/dhbern/parzival-digitalfaksimile-schwerin" target="_blank">Daten</a> | <a href="https://dhbern.github.io/parzival-digitalfaksimile-schwerin" target="_blank">In neuem Fenster öffnen</a></p>
+	</div>
+	
+	<div id="modal1" class="modal-window">
+	  <iframe src="https://dhbern.github.io/parzival-digitalfaksimile-cgm19" frameborder="0"></iframe>
+	</div>
+	<div id="modal2" class="modal-window">
+	  <iframe src="https://dhbern.github.io/parzival-digitalfaksimile-cod857" frameborder="0"></iframe>
+	</div>
+	<div id="modal3" class="modal-window">
+	  <iframe src="https://dhbern.github.io/parzival-digitalfaksimile-codAA91" frameborder="0"></iframe>
+	</div>
+	<div id="modal4" class="modal-window">
+	  <iframe src="https://dhbern.github.io/parzival-digitalfaksimile-schwerin" frameborder="0"></iframe>
+	</div>
+	
+	<hr/>
+	
+	<dl>
+	  <dt>Stand 24.06.2024</dt>
+	  <dd>Vier Digitalfaksimile-Seiten bereitgestellt auf Github-Infrastruktur (versionskontrolliert, minimaler Wartugnsaufwand) zwecks Funktionalitätstests. Die Art und Weise der Einbindung in die Parzival-Edition ist noch festzulegen, ebenso in Abhängigkeit davon die Serverkonfiguration (Subdomain/Pfad/Weiterleitung bestehender Adressen).</dd>
+	</dl>
+	
+	<script type="text/javascript">
+    document.querySelectorAll("button").forEach((btn) => {
+	  btn.addEventListener("click", ({ target }) => {    
+	    var nr = target.id
+	    let elModal = document.getElementById("modal"+nr);
+	    
+	    target.onclick = function() {
+	      console.log('click: btn: ' + target.id + ', modal: ' + elModal.id);
+	      elModal.classList.toggle('show-popup');
+	    }
+	    /* to dispose the popup on click */
+	    elModal.onclick = function() {
+	      this.classList.toggle('show-popup');
+	    }
+	  });
+	});
+      </script>
+  </body>
+</html>
